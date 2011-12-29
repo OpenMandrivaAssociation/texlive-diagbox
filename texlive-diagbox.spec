@@ -27,16 +27,8 @@ and the box dimensions, etc., may vbe controlled. The package
 also provides \slashbox and \backslashbox commands for
 compatibility with the slashbox package, which it supersedes.
 
-%pre
-    %{_sbindir}/texlive.post
-
 %post
     %{_sbindir}/texlive.post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-    fi
 
 %postun
     if [ $1 -eq 0 ]; then
@@ -50,7 +42,6 @@ compatibility with the slashbox package, which it supersedes.
 #- source
 %doc %{_texmfdistdir}/source/latex/diagbox/diagbox.dtx
 %doc %{_texmfdistdir}/source/latex/diagbox/diagbox.ins
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -61,5 +52,3 @@ compatibility with the slashbox package, which it supersedes.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
