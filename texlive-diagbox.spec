@@ -52,3 +52,15 @@ compatibility with the slashbox package, which it supersedes.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
+
+
+%changelog
+* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.0-2
++ Revision: 750921
+- Rebuild to reduce used resources
+
+* Fri Dec 09 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.0-1
++ Revision: 739585
+- texlive-diagbox
+- texlive-diagbox
+
