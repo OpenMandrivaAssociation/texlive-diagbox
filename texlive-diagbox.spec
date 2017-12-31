@@ -1,12 +1,6 @@
-# revision 24646
-# category Package
-# catalog-ctan /macros/latex/contrib/diagbox
-# catalog-date 2011-11-24 16:48:22 +0100
-# catalog-license lppl1.3
-# catalog-version 1.0
 Name:		texlive-diagbox
-Version:	1.0
-Release:	10
+Version:	2.2
+Release:	1
 Summary:	Table heads with diagonal lines
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/diagbox
@@ -37,11 +31,10 @@ compatibility with the slashbox package, which it supersedes.
 
 #-----------------------------------------------------------------------
 %files
-%{_texmfdistdir}/tex/latex/diagbox/diagbox.sty
-%doc %{_texmfdistdir}/doc/latex/diagbox/diagbox.pdf
+%{_texmfdistdir}/tex/latex/diagbox
+%doc %{_texmfdistdir}/doc/latex/diagbox
 #- source
-%doc %{_texmfdistdir}/source/latex/diagbox/diagbox.dtx
-%doc %{_texmfdistdir}/source/latex/diagbox/diagbox.ins
+%doc %{_texmfdistdir}/source/latex/diagbox
 
 #-----------------------------------------------------------------------
 %prep
@@ -52,15 +45,3 @@ compatibility with the slashbox package, which it supersedes.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
-
-
-%changelog
-* Wed Jan 04 2012 Paulo Andrade <pcpa@mandriva.com.br> 1.0-2
-+ Revision: 750921
-- Rebuild to reduce used resources
-
-* Fri Dec 09 2011 Paulo Andrade <pcpa@mandriva.com.br> 1.0-1
-+ Revision: 739585
-- texlive-diagbox
-- texlive-diagbox
-
