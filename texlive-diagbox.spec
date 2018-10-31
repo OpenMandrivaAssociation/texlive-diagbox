@@ -1,6 +1,6 @@
 Name:		texlive-diagbox
 Version:	2.2
-Release:	1
+Release:	2
 Summary:	Table heads with diagonal lines
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/diagbox
