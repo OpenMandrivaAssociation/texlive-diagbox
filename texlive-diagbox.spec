@@ -1,48 +1,29 @@
-Name:		texlive-diagbox
-Version:	54080
-Release:	2
+%global tl_name diagbox
+%global tl_revision 77682
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	2.4
+Release:	%{tl_revision}.1
 Summary:	Table heads with diagonal lines
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/diagbox
-License:	LPPL1.3
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagbox.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagbox.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/diagbox.source.r%{version}.tar.xz
+License:	lppl1.3
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/diagbox.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/diagbox.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/diagbox.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package's principal command, \diagbox, takes two arguments
-(texts for the slash-separated parts of the box), and an
-optional argument with which the direction the slash will go,
-and the box dimensions, etc., may vbe controlled. The package
-also provides \slashbox and \backslashbox commands for
-compatibility with the slashbox package, which it supersedes.
+The package's principal command, \diagbox, takes two arguments (texts
+for the slash-separated parts of the box), and an optional argument with
+which the direction the slash will go, the box dimensions, etc., may be
+controlled. The package also provides \slashbox and \backslashbox
+commands for compatibility with the slashbox package, which it
+supersedes. diagbox depends on e-TeX as well as the packages array,
+calc, fp, keyval, and pict2e.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/latex/diagbox
-%doc %{_texmfdistdir}/doc/latex/diagbox
-#- source
-%doc %{_texmfdistdir}/source/latex/diagbox
-
-#-----------------------------------------------------------------------
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc source %{buildroot}%{_texmfdistdir}
